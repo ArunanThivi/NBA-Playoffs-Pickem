@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2023 NBA Playoff Pick 'Em</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="capture">Export bracket to Image</div>
+    <div id="captureRegion">
+    <h1>2023 NBA Playoff Pick 'Em</h1>
+    <span class="subtitle">First Round</span> <span class="subtitle">Second Round</span> <span class="subtitle">Conference Semifinals</span> <span class="subtitle">Conference Finals</span> <span class="subtitle">NBA Finals</span>
+    <!-- Eastern Conference -->
+    <div class= "box roundOne" id="EastOne">
+        <img src="./logos/bucks.png" class="logo" alt="Milwaukee Bucks">
+        Milwaukee Bucks
+        <div class="checkbox" onClick="winner(this)" id="check1"></div>
+    </div>
+    <div class= "box roundOne" id="EastEight">
+        8th Seed<!-- Heat/Hawks/Raptors/Bulls -->
+        <div class="checkbox" onClick="winner(this)" id="check2"></div> 
+    </div>
+    <div class= "box roundOne" id="EastFour">
+        <img src="./logos/cavs.png" class="logo" alt="Cleveland Cavaliers">
+        Cleveland Cavaliers
+        <div class="checkbox" onClick="winner(this)" id="check3"></div>
+    </div>
+    <div class= "box roundOne" id="EastFive">
+        <img src="./logos/knicks.png" class="logo" alt="New York Knicks">
+        New York Knicks
+        <div class="checkbox" onClick="winner(this)" id="check4"></div>
+    </div>
+    <div class= "box roundOne" id="EastThree">
+        <img src="./logos/sixers.png" class="logo" alt="Philadelphia 76ers">
+        Philadelphia 76ers
+        <div class="checkbox" onClick="winner(this)" id="check5"></div>
+    </div>
+    <div class= "box roundOne" id="EastSix">
+        <img src="./logos/nets.png" class="logo" alt="Brooklyn Nets">
+        Brooklyn Nets
+        <div class="checkbox" onClick="winner(this)" id="check6"></div>
+    </div>
+    <div class= "box roundOne" id="EastTwo">
+        <img src="./logos/celtics.png" class="logo" alt="Boston Celtics">
+        Boston Celtics
+        <div class="checkbox" onClick="winner(this)" id="check7"></div>
+    </div>
+    <div class= "box roundOne" id="EastSeven">
+        7th Seed<!-- Heat/Hawks -->
+        <div class="checkbox" onClick="winner(this)" id="check8"></div>
+    </div>
+    <div class="box roundTwo" id="EastTwoOne"></div>
+    <div class="box roundTwo" id="EastTwoTwo"></div>
+    <div class="box roundTwo" id="EastTwoThree"></div>
+    <div class="box roundTwo" id="EastTwoFour"></div>
+    <div class="box semifinal" id="EastSemiOne"></div>
+    <div class="box semifinal" id="EastSemiTwo"></div>
+    <div class="box confFinal" id="EastFinal"></div>
+    <div class="box" id="Champion">
+        <img src="./logos/champion.gif" class="logo" id="trophy" alt="Champion">
+    </div>
+    <!-- Western Conference -->
+    <div class= "box roundOne" id="WestOne">
+        <img src="./logos/nuggets.png" class="logo" alt="Denver Nuggets">
+        Denver Nuggets
+        <div class="checkbox" onClick="winner(this)" id="check9"></div>
+    </div>
+    <div class= "box roundOne" id="WestEight">
+        8th Seed<!-- TWolves/Lakers/Pelicans/Thunder -->
+        <div class="checkbox" onClick="winner(this)" id="check10"></div>
+    </div>
+    <div class= "box roundOne" id="WestFour">
+        <img src="./logos/suns.png" class="logo" alt="Phoenix Suns">
+        Phoenix Suns
+        <div class="checkbox" onClick="winner(this)" id="check11"></div>
+    </div>
+    <div class= "box roundOne" id="WestFive">
+        <img src="./logos/clippers.png" class="logo" alt="LA Clippers">
+        LA Clippers
+        <div class="checkbox" onClick="winner(this)" id="check12"></div>
+    </div>
+    <div class= "box roundOne" id="WestThree">
+        <img src="./logos/kings.png" class="logo" alt="Sacremento Kings">
+        Sacremento Kings
+        <div class="checkbox" onClick="winner(this)" id="check13"></div>
+    </div>
+    <div class= "box roundOne" id="WestSix">
+        <img src="./logos/warriors.png" class="logo" alt="Golden State Warriors">
+        GS Warriors
+        <div class="checkbox" onClick="winner(this)" id="check14"></div>
+    </div>
+    <div class= "box roundOne" id="WestTwo">
+        <img src="./logos/grizzlies.png" class="logo" alt="Memphis Grizzlies">
+        Memphis Grizzlies
+        <div class="checkbox" onClick="winner(this)" id="check15"></div>
+    </div>
+    <div class= "box roundOne" id="WestSeven">
+        <!-- <img src="./logos/lakers.png" class="logo" alt="LA Lakers"> -->
+        7th Seed<!-- TWolves/Lakers -->
+        <div class="checkbox" onClick="winner(this)" id="check16"></div>
+    </div>
+    <div class="box roundTwo" id="WestTwoOne"></div>
+    <div class="box roundTwo" id="WestTwoTwo"></div>
+    <div class="box roundTwo" id="WestTwoThree"></div>
+    <div class="box roundTwo" id="WestTwoFour"></div>
+    <div class="box semifinal" id="WestSemiOne"></div>
+    <div class="box semifinal" id="WestSemiTwo"></div>
+    <div class="box confFinal" id="WestFinal"></div>
+    </div>
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content" id="modalInner">
+          <span class="close">&times;</span>
+          <p>Image Created<br>(To save, right click image and select "Save Image as...")</p>
+        </div>
+      
+      </div>
+    <script>
+        // html2canvas(document.body).then(canvas => {
+        //     document.body.appendChild(canvas)
+        // });
+
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("capture");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on the button, open the modal
+        btn.onclick = function() {
+            html2canvas(document.getElementById("captureRegion")).then(canvas => {
+                canvas.id="canvasPreview";
+                document.getElementById("modalInner").appendChild(canvas)
+            });
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            document.getElementById("canvasPreview") && document.getElementById("canvasPreview").remove();
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                document.getElementById("canvasPreview") && document.getElementById("canvasPreview").remove();
+                modal.style.display = "none";
+            }
+        }
+        function winner(element) {
+            const parent = element.parentElement;
+            let target = parent.id;
+            let checkboxId = -1;
+            switch (element.id) {
+                case "check1":
+                case "check2":
+                    document.getElementById("check1").style.removeProperty('background-color');
+                    document.getElementById("check2").style.removeProperty('background-color');
+                    target = document.getElementById("EastTwoOne")
+                    checkboxId = 17;
+                    break;
+                case "check3":
+                case "check4":
+                    document.getElementById("check3").style.removeProperty('background-color');
+                    document.getElementById("check4").style.removeProperty('background-color');
+                    target = document.getElementById("EastTwoTwo");
+                    checkboxId = 18;
+                    break;
+                    
+                case "check5":
+                case "check6":
+                    document.getElementById("check5").style.removeProperty('background-color');
+                    document.getElementById("check6").style.removeProperty('background-color');
+                    target = document.getElementById("EastTwoThree")
+                    checkboxId = 19;
+                    break;
+                    
+                case "check7":
+                case "check8":
+                    document.getElementById("check7").style.removeProperty('background-color');
+                    document.getElementById("check8").style.removeProperty('background-color');
+                    target = document.getElementById("EastTwoFour")
+                    checkboxId = 20;
+                    break;
+                    
+                case "check9":
+                case "check10":
+                    document.getElementById("check9").style.removeProperty('background-color');
+                    document.getElementById("check10").style.removeProperty('background-color');
+                    target = document.getElementById("WestTwoOne")
+                    checkboxId = 21;
+                    break;
+                    
+                case "check11":
+                case "check12":
+                    document.getElementById("check11").style.removeProperty('background-color');
+                    document.getElementById("check12").style.removeProperty('background-color');
+                    target = document.getElementById("WestTwoTwo")
+                    checkboxId = 22;
+                    break;
+                    
+                case "check13":
+                case "check14":
+                    document.getElementById("check13").style.removeProperty('background-color');
+                    document.getElementById("check14").style.removeProperty('background-color');
+                    target = document.getElementById("WestTwoThree")
+                    checkboxId = 23;
+                    break;
+                case "check15":
+                case "check16":
+                    document.getElementById("check15").style.removeProperty('background-color');
+                    document.getElementById("check16").style.removeProperty('background-color');
+                    target = document.getElementById("WestTwoFour")
+                    checkboxId = 24;
+                    break;
+                case "check17":
+                case "check18":
+                    document.getElementById("check17") && document.getElementById("check17").style.removeProperty('background-color');
+                    document.getElementById("check18") && document.getElementById("check18").style.removeProperty('background-color');
+                    target = document.getElementById("EastSemiOne")
+                    checkboxId = 25;
+                    break;
+                case "check19":
+                case "check20":
+                    document.getElementById("check19") && document.getElementById("check19").style.removeProperty('background-color');
+                    document.getElementById("check20") && document.getElementById("check20").style.removeProperty('background-color');
+                    target = document.getElementById("EastSemiTwo");
+                    checkboxId = 26;
+                    break;
+                case "check21":
+                case "check22":
+                    document.getElementById("check21") && document.getElementById("check21").style.removeProperty('background-color');
+                    document.getElementById("check22") && document.getElementById("check22").style.removeProperty('background-color');
+                    target = document.getElementById("WestSemiOne")
+                    checkboxId = 27;
+                    break;
+                case "check23":
+                case "check24":
+                    document.getElementById("check23") && document.getElementById("check23").style.removeProperty('background-color');
+                    document.getElementById("check24") && document.getElementById("check24").style.removeProperty('background-color');
+                    target = document.getElementById("WestSemiTwo");
+                    checkboxId = 28;
+                    break;
+                case "check25":
+                case "check26":
+                    document.getElementById("check25") && document.getElementById("check25").style.removeProperty('background-color');
+                    document.getElementById("check26") && document.getElementById("check26").style.removeProperty('background-color');
+                    target = document.getElementById("EastFinal");
+                    checkboxId = 29;
+                    break;
+                case "check27":
+                case "check28":
+                    document.getElementById("check27") && document.getElementById("check27").style.removeProperty('background-color');
+                    document.getElementById("check28") && document.getElementById("check28").style.removeProperty('background-color');
+                    target = document.getElementById("WestFinal")
+                    checkboxId = 30;
+                    break;
+                case "check29":
+                case "check30":
+                    document.getElementById("check29") && document.getElementById("check29").style.removeProperty('background-color');
+                    document.getElementById("check30") && document.getElementById("check30").style.removeProperty('background-color');
+                    target = document.getElementById("Champion")
+                    checkboxId = 31;
+                    break;
+            
+                default:
+                    break;
+            }
+            target.innerHTML = parent.innerHTML;
+            if (checkboxId == 31) {
+                target.innerHTML += "<img src=\"./logos/champion.gif\" class=\"logo\" id=\"trophy\" alt=\"Champion\">";
+                target.getElementsByClassName("checkbox")[0].remove();
+            } else {
+                target.getElementsByClassName("checkbox")[0].id = "check" + checkboxId;
+            }
+            element.style.backgroundColor = "blue";
+        }
+    </script>
+</body>
+</html>

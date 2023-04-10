@@ -1,0 +1,177 @@
+h1 {
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.subtitle {
+    margin-left: 10px;
+    margin-right: 35px;
+    width: 200px;
+    display: inline-block;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+    text-align: center;
+}
+.box {
+    height: 33.5px;
+    width: 200px;
+    background-color: #d8d8d8;
+    border: 2px solid black;
+    line-height: 33.5px;
+    padding-top:6.5px;
+    padding-left: 5px;
+    margin: 10px;
+    position: relative;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: medium;
+}
+.logo {
+    display: inline;
+    height: 20px;
+}
+.checkbox {
+    height: 17px;
+    width: 17px;
+    border: 1px solid black;
+    display: inline-block;
+    right: 15px;
+    position: absolute;
+}
+.roundTwo {
+    position: absolute;
+    left: 250px;
+}
+.semifinal {
+    position: absolute;
+    left: 500px;
+}
+.confFinal {
+    position: absolute;
+    left: 750px;
+}
+#capture {
+    position: absolute;
+    right: 50px;
+    top: 30px;
+    background-color: rgb(103, 103, 250);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+    border-radius: 10px;
+}
+#EastTwoOne { 
+    top: 133px;
+}
+
+#EastTwoTwo {
+    top: 240px;
+}
+
+#EastTwoThree {
+    top: 345px;
+}
+
+#EastTwoFour {
+    top: 455px;
+}
+
+#EastSemiOne {
+    top: 190px;
+}
+
+#EastSemiTwo {
+    top: 400px;
+}
+
+#EastFinal {
+    position: absolute;
+    left: 750px;
+    top: 300px;
+}
+
+#WestTwoOne { 
+    top: 570px;
+}
+
+#WestTwoTwo {
+    top: 680px;
+}
+
+#WestTwoThree {
+    top: 790px;
+}
+
+#WestTwoFour {
+    top: 900px;
+}
+
+#WestSemiOne {
+    top: 625px;
+}
+
+#WestSemiTwo {
+    top: 850px;
+}
+
+#WestFinal {
+    top: 735px;
+}
+
+#Champion {
+    position: absolute;
+    left: 1000px;
+    top: 510px;
+}
+
+#trophy {
+    right: 15px;
+    position: absolute;
+}
+#captureRegion {
+    width: fit-content;
+}
+
+#canvasPreview{
+    width: 80%;
+}
+/* Modal */
+
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
