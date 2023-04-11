@@ -10,6 +10,7 @@
 </head>
 <body>
     <div id="capture">Export bracket to Image</div>
+    <div id="scores">Add Scores<input type="checkbox" id="scoring" name="scores" value="enabled" onchange="enableWins()"></div>
     <div id="captureRegion">
     <h1>2023 NBA Playoff Pick 'Em</h1>
     <span class="subtitle">First Round</span> <span class="subtitle">Second Round</span> <span class="subtitle">Conference Semifinals</span> <span class="subtitle">Conference Finals</span> <span class="subtitle">NBA Finals</span>
@@ -18,39 +19,47 @@
         <img src="./logos/bucks.png" class="logo" alt="Milwaukee Bucks">
         (1) Milwaukee
         <div class="checkbox" onClick="winner(this)" id="check1"></div>
+        <input type="text" id="score1" class="score" pattern="[0-4]" onChange="gameWon(this)">
     </div>
     <div class= "box roundOne" id="EastEight">
         (8) MIA/ATL/TOR/CHI<!-- Heat/Hawks/Raptors/Bulls -->
         <div class="checkbox" onClick="winner(this)" id="check2"></div> 
+        <input type="text" id="score2" class="score" pattern="[0-4]" onChange="gameWon(this)">
     </div>
     <div class= "box roundOne" id="EastFour">
         <img src="./logos/cavs.png" class="logo" alt="Cleveland Cavaliers">
         (4) Cleveland
         <div class="checkbox" onClick="winner(this)" id="check3"></div>
+        <input type="text" id="score3" class="score" pattern="[0-4]" onChange="gameWon(this)">
     </div>
     <div class= "box roundOne" id="EastFive">
         <img src="./logos/knicks.png" class="logo" alt="New York Knicks">
         (5) New York 
         <div class="checkbox" onClick="winner(this)" id="check4"></div>
+        <input type="text" id="score4" class="score" pattern="[0-4]" onChange="gameWon(this)">
     </div>
     <div class= "box roundOne" id="EastThree">
         <img src="./logos/sixers.png" class="logo" alt="Philadelphia 76ers">
         (3) Philadelphia
         <div class="checkbox" onClick="winner(this)" id="check5"></div>
+        <input type="text" id="score5" class="score" pattern="[0-4]" onChange="gameWon(this)">
     </div>
     <div class= "box roundOne" id="EastSix">
         <img src="./logos/nets.png" class="logo" alt="Brooklyn Nets">
         (6) Brooklyn
         <div class="checkbox" onClick="winner(this)" id="check6"></div>
+        <input type="text" id="score6" class="score" pattern="[0-4]" onChange="gameWon(this)">
     </div>
     <div class= "box roundOne" id="EastTwo">
         <img src="./logos/celtics.png" class="logo" alt="Boston Celtics">
         (2) Boston
         <div class="checkbox" onClick="winner(this)" id="check7"></div>
+        <input type="text" id="score7" class="score" pattern="[0-4]" onChange="gameWon(this)">
     </div>
     <div class= "box roundOne" id="EastSeven">
         (7) MIA/ATL<!-- Heat/Hawks -->
         <div class="checkbox" onClick="winner(this)" id="check8"></div>
+        <input type="text" id="score8" class="score" pattern="[0-4]" onChange="gameWon(this)">
     </div>
     <div class="box roundTwo" id="EastTwoOne"></div>
     <div class="box roundTwo" id="EastTwoTwo"></div>
@@ -67,40 +76,48 @@
         <img src="./logos/nuggets.png" class="logo" alt="Denver Nuggets">
         (1) Denver
         <div class="checkbox" onClick="winner(this)" id="check9"></div>
+        <input type="text" id="score9" class="score" pattern="[0-4]" onChange="gameWon(this)">
     </div>
     <div class= "box roundOne" id="WestEight">
         (8) MIN/LAL/NOP/OKC<!-- TWolves/Lakers/Pelicans/Thunder -->
         <div class="checkbox" onClick="winner(this)" id="check10"></div>
+        <input type="text" id="score10" class="score" pattern="[0-4]" onChange="gameWon(this)">
     </div>
     <div class= "box roundOne" id="WestFour">
         <img src="./logos/suns.png" class="logo" alt="Phoenix Suns">
         (4) Phoenix
         <div class="checkbox" onClick="winner(this)" id="check11"></div>
+        <input type="text" id="score11" class="score" pattern="[0-4]" onChange="gameWon(this)">
     </div>
     <div class= "box roundOne" id="WestFive">
         <img src="./logos/clippers.png" class="logo" alt="LA Clippers">
         (5) LA Clippers
         <div class="checkbox" onClick="winner(this)" id="check12"></div>
+        <input type="text" id="score12" class="score" pattern="[0-4]" onChange="gameWon(this)">
     </div>
     <div class= "box roundOne" id="WestThree">
         <img src="./logos/kings.png" class="logo" alt="Sacremento Kings">
         (3) Sacremento
         <div class="checkbox" onClick="winner(this)" id="check13"></div>
+        <input type="text" id="score13" class="score" pattern="[0-4]" onChange="gameWon(this)">
     </div>
     <div class= "box roundOne" id="WestSix">
         <img src="./logos/warriors.png" class="logo" alt="Golden State Warriors">
         (6) Golden State
         <div class="checkbox" onClick="winner(this)" id="check14"></div>
+        <input type="text" id="score14" class="score" pattern="[0-4]" onChange="gameWon(this)">
     </div>
     <div class= "box roundOne" id="WestTwo">
         <img src="./logos/grizzlies.png" class="logo" alt="Memphis Grizzlies">
         (2) Memphis
         <div class="checkbox" onClick="winner(this)" id="check15"></div>
+        <input type="text" id="score15" class="score" pattern="[0-4]" onChange="gameWon(this)">
     </div>
     <div class= "box roundOne" id="WestSeven">
         <!-- <img src="./logos/lakers.png" class="logo" alt="LA Lakers"> -->
         (7) MIN/LAL<!-- TWolves/Lakers -->
         <div class="checkbox" onClick="winner(this)" id="check16"></div>
+        <input type="text" id="score16" class="score" pattern="[0-4]" onChange="gameWon(this)">
     </div>
     <div class="box roundTwo" id="WestTwoOne"></div>
     <div class="box roundTwo" id="WestTwoTwo"></div>
@@ -279,6 +296,121 @@
                 target.getElementsByClassName("checkbox")[0].id = "check" + checkboxId;
             }
             element.style.backgroundColor = "blue";
+        }
+
+        function enableWins() {
+            // Change all checkboxes to be input boxes that accept only numbers 0-4
+            let checkboxes = document.getElementsByClassName("checkbox");
+            let scoreBoxes = document.getElementsByClassName("score");
+            //Hide all checkboxes
+            for (let i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].style.display == "none") {
+                    checkboxes[i].style.display = "inline-block";
+                    scoreBoxes[i].style.display = "none";
+                } else {
+                    checkboxes[i].style.display = "none";
+                    scoreBoxes[i].style.display = "inline-block";
+                }
+            }
+        }
+        function gameWon(element) {
+            if (element.value == "4") {
+                let target = null;
+                let newId = -1;
+                switch (element.id) {
+                    case "score1":
+                    case "score2":
+                        target = document.getElementById("EastTwoOne")
+                        newId = 17;
+                        break;
+                    case "score3":
+                    case "score4":
+                        target = document.getElementById("EastTwoTwo");
+                        newId = 18;
+                        break;
+                    case "score5":
+                    case "score6":
+                        target = document.getElementById("EastTwoThree")
+                        newId = 19;
+                        break;
+                    case "score7":
+                    case "score8":
+                        target = document.getElementById("EastTwoFour")
+                        newId = 20;
+                        break;
+                    case "score9":
+                    case "score10":
+                        target = document.getElementById("WestTwoOne")
+                        newId = 21;
+                        break;
+                    case "score11":
+                    case "score12":
+                        target = document.getElementById("WestTwoTwo")
+                        newId = 22;
+                        break;
+                    case "score13":
+                    case "score14":
+                        target = document.getElementById("WestTwoThree")
+                        newId = 23;
+                        break;
+                    case "score15":
+                    case "score16":
+                        target = document.getElementById("WestTwoFour")
+                        newId = 24;
+                        break;
+                    case "score17":
+                    case "score18":
+                        target = document.getElementById("EastSemiOne")
+                        newId = 25;
+                        break;
+                    case "score19":
+                    case "score20":
+                        target = document.getElementById("EastSemiTwo");
+                        newId = 26;
+                        break;
+                    case "score21":
+                    case "score22":
+                        target = document.getElementById("WestSemiOne")
+                        newId = 27;
+                        break;
+                    case "score23":
+                    case "score24":
+                        target = document.getElementById("WestSemiTwo");
+                        newId = 28;
+                        break;
+                    case "score25":
+                    case "score26":
+                        target = document.getElementById("EastFinal");
+                        newId = 29;
+                        break;
+                    case "score27":
+                    case "score28":
+                        target = document.getElementById("WestFinal")
+                        newId = 30;
+                        break;
+                    case "score29":
+                    case "score30":
+                        target = document.getElementById("Champion")
+                        newId = 31;
+                        break;
+                
+                    default:
+                        break;
+                }
+                target.innerHTML = element.parentElement.innerHTML;
+                if (newId == 31) {
+                    target.innerHTML += "<img src=\"./logos/champion.gif\" class=\"logo\" id=\"trophy\" alt=\"Champion\">";
+                    target.getElementsByClassName("score")[0].remove();
+                } else {
+                    target.getElementsByClassName("score")[0].id = "score" + newId;
+                }
+                element.style.fontWeight = "bold";
+                element.style.fontSize = "1.5em";
+            }
+            else {
+                //set element font weight to normal
+                element.style.fontWeight = "normal";
+            }
         }
     </script>
 </body>
